@@ -4,8 +4,6 @@ class Orientation
   attr_reader :y
 
   def initialize(name)
-    @x = 0
-    @y = 0
     set(name)
   end
 
@@ -28,10 +26,24 @@ class Orientation
     end
     @name = name
   end
-  
+
+  #sets the new direction an array and % as a simple state-enumerator
   def rotate(direction)
-    #l,r
-    #evtl zustandsautomat %4 (1234)
+    #possible states
+    orientations = ["N","O","S","W"]
+    currentOrientation = orientations.index(@name)
+    case direction
+    when "l"
+      newOrientation = (currentOrientation - 1)%4
+      set(orientations[newOrientation])
+    when "r"
+      newOrientation = (currentOrientation + 1)%4
+      set(orientations[newOrientation])
+    else
+      # TODO: Exception
+    end
+
   end
+
 
 end

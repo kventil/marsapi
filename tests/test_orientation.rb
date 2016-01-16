@@ -36,4 +36,38 @@ class TestRover < MiniTest::Unit::TestCase
   def test_orientation_illegal
     ## TODO: illegal input
   end
+
+
+
+  def test_rotation_full_l
+    @o.set("N")
+    @o.rotate("l")
+    assert_equal "W", @o.name
+    @o.rotate("l")
+    assert_equal "S", @o.name
+    @o.rotate("l")
+    assert_equal "O", @o.name
+    @o.rotate("l")
+    assert_equal "N", @o.name
+  end
+
+  def test_rotation_full_r
+    @o.set("N")
+    @o.rotate("r")
+    assert_equal "O", @o.name
+    @o.rotate("r")
+    assert_equal "S", @o.name
+    @o.rotate("r")
+    assert_equal "W", @o.name
+    @o.rotate("r")
+    assert_equal "N", @o.name
+  end
+
+
+  def test_rotation_illegal
+      # TODO: illegal input
+  end
+
+
+
 end
