@@ -28,6 +28,10 @@ class Orientation
     end
     @name = name
   end
-
+  
+  def rotate(direction)
+    #l,r
+    #evtl zustandsautomat %4 (1234)
+  end
 
 end
