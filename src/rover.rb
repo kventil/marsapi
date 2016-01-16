@@ -36,12 +36,12 @@ class Rover
     direction = 0
     commands.each{
       |command|
-      case command
+      case command #movements
       when "f","b"
         move(command)
-      when "l","r"
+      when "l","r" #rotations
         rotate(command)
-      else
+      else #illegal commands
         # TODO: Exception
       end
     }
