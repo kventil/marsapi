@@ -9,14 +9,11 @@ class Rover
     @orientation = Orientation.new(o)
   end
 
+
+
   #set new orientation
   def rotate(rotation)
-    case rotation
-    when "N","O","S","W"
       @orientation.rotate(rotation)
-    else
-      # TODO: Exception
-    end
   end
 
   #set new position based on orientation and direction

@@ -12,7 +12,6 @@ class TestRover < MiniTest::Unit::TestCase
     # - illegal coordinates
     # - illegal commando
 
-
   def test_rover_move_f
     @rover = Rover.new(0,0,"N")
     @rover.commands(["f"])
@@ -27,6 +26,20 @@ class TestRover < MiniTest::Unit::TestCase
     position = @rover.position
     assert_equal 0, position["x"]
     assert_equal -1, position["y"]
+  end
+
+  def test_rover_rotate_l
+    @rover = Rover.new(0,0,"N")
+    @rover.commands(["l"])
+    position = @rover.orientation
+    assert_equal "W", @rover.orientation.name
+  end
+
+  def test_rover_rotate_r
+    @rover = Rover.new(0,0,"N")
+    @rover.commands(["r"])
+    position = @rover.orientation
+    assert_equal "O", @rover.orientation.name
   end
 
 
@@ -53,6 +66,26 @@ class TestRover < MiniTest::Unit::TestCase
     assert_equal -1, position["x"]
     assert_equal 0, position["y"]
   end
+
+  def test_rover_move_multiple_f
+    @rover = Rover.new(0,0,"W")
+    @rover.commands(["f","b","f","b"])
+    position = @rover.position
+    assert_equal 0, position["x"]
+    assert_equal 0, position["y"]
+  end
+
+  def test_rover_move_circle
+    @rover = Rover.new(0,0,"W")
+    @rover.commands(["r","f","r","f","r","f","r","f"])
+    position = @rover.position
+    assert_equal 0, position["x"]
+    assert_equal 0, position["y"]
+    assert_equal "W", @rover.orientation.name
+  end
+
+
+
 
 
 
