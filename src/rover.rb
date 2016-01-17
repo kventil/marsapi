@@ -26,6 +26,7 @@ class Rover
     else
       # TODO: Exception
     end
+    #using % to create two quotient rings (restklassenringe) x,y as spheric coordinate-system
     @position["x"] = (@position["x"] + @orientation.x * directionModifier) % @planetSize
     @position["y"] = (@position["y"] + @orientation.y * directionModifier) % @planetSize
   end

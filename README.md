@@ -15,8 +15,8 @@ Init with Coordinates (x,y) and direction (N,S,E,W) optional with planetSize
 
 
 Move with List of commands:
-f - forward
-b - backwards
+f - forward one unit
+b - backward one unit
 r - rotate right
 l - rotate left
 > @rover.commands(["r","f","f","f"])
