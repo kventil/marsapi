@@ -1,15 +1,15 @@
 require_relative "./orientation"
 
 class Rover
+  attr_reader :planetSize
   attr_reader :position
   attr_reader :orientation
 
-  def initialize(x,y,o)
+  def initialize(x,y,orientation,planetSize = 5)
     @position = Hash["x", x, "y", y] #evtl. obj
-    @orientation = Orientation.new(o)
+    @orientation = Orientation.new(orientation)
+    @planetSize = planetSize
   end
-
-
 
   #set new orientation
   def rotate(rotation)
@@ -26,8 +26,8 @@ class Rover
     else
       # TODO: Exception
     end
-    @position["x"] += @orientation.x * directionModifier
-    @position["y"] += @orientation.y * directionModifier
+    @position["x"] = (@position["x"] + @orientation.x * directionModifier) % @planetSize
+    @position["y"] = (@position["y"] + @orientation.y * directionModifier) % @planetSize
   end
 
 

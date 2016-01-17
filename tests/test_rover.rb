@@ -26,7 +26,7 @@ class TestRover < MiniTest::Unit::TestCase
     @rover.commands(["b"])
     position = @rover.position
     assert_equal 0, position["x"]
-    assert_equal -1, position["y"]
+    assert_equal @rover.planetSize - 1, position["y"]
   end
 
   def test_rover_rotate_l
@@ -57,14 +57,14 @@ class TestRover < MiniTest::Unit::TestCase
     @rover.commands(["f"])
     position = @rover.position
     assert_equal 0, position["x"]
-    assert_equal -1, position["y"]
+    assert_equal @rover.planetSize - 1, position["y"]
   end
 
   def test_rover_move_fw
     @rover = Rover.new(0,0,"W")
     @rover.commands(["f"])
     position = @rover.position
-    assert_equal -1, position["x"]
+    assert_equal @rover.planetSize - 1, position["x"]
     assert_equal 0, position["y"]
   end
 
@@ -85,5 +85,13 @@ class TestRover < MiniTest::Unit::TestCase
     assert_equal "W", @rover.orientation.name
   end
 
-  
+  def test_rover_planet_size
+    @rover = Rover.new(0,0,"N",2)
+    @rover.commands(["f","f"])
+    position = @rover.position
+    assert_equal 0, position["x"]
+    assert_equal 0, position["y"]
+    assert_equal "N", @rover.orientation.name
+  end
+
 end
