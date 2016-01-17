@@ -7,12 +7,14 @@ Let's go exploring!
 (c) by xkcd.org (https://xkcd.com/695/)
 
 
-- Entwickle eine API, die einen Rover auf einem Grid bewegt.
-- Du erhältst einen initial Startpunkt des Rovers in Form von x- und
- y-Koordinaten und die Richtung (N, S, E, W) in welche der Rover zeigt.
+## Usage
 
-- Der Rover erhällt eine Liste an Bewegungs-Kommandos.
-   - Implementiere Kommandos für Vor- und Rückwärtsbegegung des Rovers (f, b).
-   - Implementiere Kommandos für Link- und Rechtsdrehung des Rovers (l, r).
-- Implementiere den nahtlosen Übergang von einem Ende des Grids zum anderen
- (Planeten sind schließlich sphärische Körper).
+Init with Coordinates (x,y) and direction (N,S,E,W)
+> rover = @rover.new(0,0,"N")
+
+Move with List of commands:
+f - forward
+b - backwards
+r - rotate right
+l - rotate left
+> @rover.commands(["r","f","f","f"])
