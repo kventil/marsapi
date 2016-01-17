@@ -1,5 +1,6 @@
 require_relative "../src/orientation.rb"
 require "minitest/autorun"
+require 'minitest/pride'
 
 
 class TestRover < MiniTest::Unit::TestCase
@@ -14,11 +15,11 @@ class TestRover < MiniTest::Unit::TestCase
     assert_equal 1, @o.y
     assert_equal "N", @o.name
   end
-  def test_orientation_o
-    @o.set("O")
+  def test_orientation_e
+    @o.set("E")
     assert_equal 1, @o.x
     assert_equal 0, @o.y
-    assert_equal "O", @o.name
+    assert_equal "E", @o.name
   end
   def test_orientation_s
     @o.set("S")
@@ -37,8 +38,6 @@ class TestRover < MiniTest::Unit::TestCase
     ## TODO: illegal input
   end
 
-
-
   def test_rotation_full_l
     @o.set("N")
     @o.rotate("l")
@@ -46,7 +45,7 @@ class TestRover < MiniTest::Unit::TestCase
     @o.rotate("l")
     assert_equal "S", @o.name
     @o.rotate("l")
-    assert_equal "O", @o.name
+    assert_equal "E", @o.name
     @o.rotate("l")
     assert_equal "N", @o.name
   end
@@ -54,7 +53,7 @@ class TestRover < MiniTest::Unit::TestCase
   def test_rotation_full_r
     @o.set("N")
     @o.rotate("r")
-    assert_equal "O", @o.name
+    assert_equal "E", @o.name
     @o.rotate("r")
     assert_equal "S", @o.name
     @o.rotate("r")
@@ -63,11 +62,8 @@ class TestRover < MiniTest::Unit::TestCase
     assert_equal "N", @o.name
   end
 
-
   def test_rotation_illegal
       # TODO: illegal input
   end
-
-
 
 end

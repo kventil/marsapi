@@ -1,5 +1,6 @@
 require_relative "../src/rover.rb"
 require "minitest/autorun"
+require 'minitest/pride'
 
 
 class TestRover < MiniTest::Unit::TestCase
@@ -39,12 +40,12 @@ class TestRover < MiniTest::Unit::TestCase
     @rover = Rover.new(0,0,"N")
     @rover.commands(["r"])
     position = @rover.orientation
-    assert_equal "O", @rover.orientation.name
+    assert_equal "E", @rover.orientation.name
   end
 
 
-  def test_rover_move_fo
-    @rover = Rover.new(0,0,"O")
+  def test_rover_move_fe
+    @rover = Rover.new(0,0,"E")
     @rover.commands(["f"])
     position = @rover.position
     assert_equal 1, position["x"]
@@ -84,11 +85,5 @@ class TestRover < MiniTest::Unit::TestCase
     assert_equal "W", @rover.orientation.name
   end
 
-
-
-
-
-
-
-
+  
 end

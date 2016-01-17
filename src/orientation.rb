@@ -12,7 +12,7 @@ class Orientation
     when "N"
       @x = 0
       @y = 1
-    when "O"
+    when "E"
       @x = 1
       @y = 0
     when "S"
@@ -27,10 +27,10 @@ class Orientation
     @name = name
   end
 
-  #sets the new direction an array and % as a simple state-enumerator
+  #sets the new direction using an array and % as a simple state-enumerator
   def rotate(direction)
     #possible states
-    orientations = ["N","O","S","W"]
+    orientations = ["N","E","S","W"]
     currentOrientation = orientations.index(@name)
     case direction
     when "l"

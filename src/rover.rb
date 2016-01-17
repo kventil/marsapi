@@ -18,16 +18,16 @@ class Rover
 
   #set new position based on orientation and direction
   def move(direction)
-    d = 0
+    directionModifier = 0
     if direction == "f"
-      d = 1
+      directionModifier = 1
     elsif direction == "b"
-      d = -1
+      directionModifier = -1
     else
       # TODO: Exception
     end
-    @position["x"] += @orientation.x * d
-    @position["y"] += @orientation.y * d
+    @position["x"] += @orientation.x * directionModifier
+    @position["y"] += @orientation.y * directionModifier
   end
 
 
