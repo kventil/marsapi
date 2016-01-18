@@ -11,6 +11,7 @@ Let's go exploring!
 
 Init with Coordinates (x,y) and direction (N,S,E,W) optional with planetSize
 > rover = @rover.new(0,0,"N")
+
 > rover = @rover.new(0,0,"N",9) #with planetSize
 
 
@@ -26,4 +27,5 @@ Get position (0,0 - planetSize,planetSize):
 
 Get orientation
 > @rover.orientation #returns orientation
+
 > @rover.orientation.name # returns orientation as String => "N"
